@@ -1,3 +1,4 @@
+import SideBar from '../components/SideBar'
 import '../styles/globals.css'
 
 export default function RootLayout({
@@ -10,11 +11,13 @@ export default function RootLayout({
       <head />
       <body>
         <div className='flex'>
-          {/* {sidebar} */}
+          <div className='bg-customGraySideBar max-w-xs h-screen overflow-y-auto md:min-w-[15rem]'>
+            <SideBar/>  
+          </div>
 
           {/* {Notification - clientprovider} */}
 
-          <div className='bg-darkgray flex-1'>
+          <div className='bg-customGrayMain flex-1'>
             {children}  
           </div>
         </div>
