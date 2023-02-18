@@ -1,9 +1,7 @@
+"use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import {
-  ChatBubbleBottomCenterTextIcon,
-  TrashIcon,
-} from "@heroicons/react/24/outline";
+import { ChatBubbleLeftIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { usePathname, useRouter } from "next/navigation";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
@@ -33,7 +31,7 @@ function ChatRow({ id }: Props) {
         href={`/chat/${id}`}
         className={`chatRow justify-center $ ${active && "bg-gray-700/30"}`}
       >
-        <ChatBubbleBottomCenterTextIcon className="h-5 w-5 text-white" />
+        <ChatBubbleLeftIcon className="h-5 w-5 text-white" />
         <p className="flex-1 hiden md:inline-flex truncate ">New Chat</p>
         <TrashIcon
           onClick={removeChat}
