@@ -26,7 +26,6 @@ export default async function RootLayout({
                 <SideBar />
               </div>
 
-              {/* {Notification - clientprovider} */}
               <ClientProvider />
 
               <div className="bg-customGrayMain flex-1">{children}</div>
