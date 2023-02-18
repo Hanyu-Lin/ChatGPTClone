@@ -15,7 +15,6 @@ function NewChatButton() {
       collection(db, "users", session?.user?.email!, "chats"),
       {
         userId: session?.user?.email!,
-        messages: [],
         createdAt: serverTimestamp(),
       }
     );
