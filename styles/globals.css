@@ -2,17 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components{
+@layer components {
   .infoText {
-    @apply p-4 bg-gray-700/50 rounded-lg max-w-[18rem]
+    @apply p-4 bg-gray-700/50 rounded-lg max-w-[18rem];
   }
   .chatRow {
-    @apply rounded-md px-5 py-3 text-sm flex items-center justify-center space-x-2 hover:bg-gray-700/70 cursor-pointer text-white transition-all ease-out
+    @apply rounded-md px-5 py-3 text-sm flex items-center justify-center space-x-2 hover:bg-gray-700/70 cursor-pointer text-white transition-all ease-out duration-200;
   }
   .logOutButton {
     @apply rounded-md px-3 py-3 gap-3 text-sm flex items-start space-x-2 text-white 
-    hover:bg-red-500/80 cursor-pointer transition-all duration-200 ease-out
+    hover:bg-red-500/80 cursor-pointer transition-all duration-200 ease-out;
   }
-
-
 }
