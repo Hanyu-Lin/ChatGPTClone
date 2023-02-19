@@ -28,7 +28,7 @@ export default async function handler(
     user: {
       _id: "ChatGPT",
       name: "ChatGPT",
-      avatar: "/images/bot.jpg",
+      avatar: "/images/AI.jpg",
     },
   };
 
