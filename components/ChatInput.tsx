@@ -22,6 +22,7 @@ function ChatInput({ chatId }: Props) {
     const message = createMessage(input);
     addToDatabase(message);
     const notification = toast.loading("Generating...");
+    await sleep(1000); // OpenAI could respone on the same second, can it would mess up the order
     await fetch("/api/askThePrompt", {
       method: "POST",
       headers: {
@@ -33,10 +34,16 @@ function ChatInput({ chatId }: Props) {
         model: model,
         session: session,
       }),
-    }).then((response) => {
-      console.log(response);
-      toast.success("Finished", { id: notification });
-    });
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Something went wrong");
+        }
+        toast.success("Finished", { id: notification });
+      })
+      .catch((error) => {
+        toast.error(error.message, { id: notification });
+      });
   };
   async function addToDatabase(message: Message) {
     await addDoc(
@@ -61,6 +68,9 @@ function ChatInput({ chatId }: Props) {
         avatar: session?.user?.image!,
       },
     };
+  }
+  async function sleep(ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
   return (
     <div className="bg-gray-700/70 rounded-md text-white">
