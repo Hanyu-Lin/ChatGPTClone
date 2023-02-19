@@ -23,9 +23,18 @@ function SideBar() {
         <div>
           <NewChatButton />
 
-          {chats?.docs.map((chat) => (
-            <ChatRow key={chat.id} id={chat.id} />
-          ))}
+          {loding ? (
+            <span className="flex flex-col py-5 gap-y-3 justify-center items-center">
+              <span className="animate-spin relative flex h-10 w-10 rounded-sm bg-white "></span>
+              <p className="text-white font-bold">Loading Chats...</p>
+            </span>
+          ) : (
+            <div>
+              {chats?.docs.map((chat) => (
+                <ChatRow key={chat.id} id={chat.id} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
       {session && (
