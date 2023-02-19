@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
 import { toast } from "react-hot-toast";
 import { useSession } from "next-auth/react";
@@ -22,7 +22,7 @@ function ChatInput({ chatId }: Props) {
     const message = createMessage(input);
     addToDatabase(message);
     const notification = toast.loading("Generating...");
-    const response = await fetch("/api/askThePrompt", {
+    await fetch("/api/askThePrompt", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
